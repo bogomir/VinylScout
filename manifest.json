@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "VinylScout",
+  "version": "1.0",
+  "description": "Выдели название альбома и добавь в Discogs Wantlist",
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.discogs.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.svg"
+  },
+  "options_page": "options.html"
+}
